@@ -32,7 +32,10 @@ Presence.prototype.scan = function() {
   
   var self = this;
   self.writeToLog('Ping => Start pinging hosts');
-  for(var ip in self._opts.hosts) {
+
+  var keys = Object.keys(self._opts.hosts);
+  for (var i=0; i<keys.length; i++) {
+    var ip = keys[i];
   	var host = self._opts.hosts[ip];
   	self.pingHost(host);
   	
