@@ -1,4 +1,5 @@
 var Presence = require('ninja-presence-base');
+var _ = require('underscore');
 
 module.exports = Presence;
 
@@ -31,7 +32,7 @@ Presence.prototype.init = function() {
 Presence.prototype.scan = function() {
   
   var self = this;
-  this._app.log.info('Ping => Start pinging hosts');
+  this._app.log.info('Pinging hosts: %j', _.map(self._opts.hosts, function(host) { return host.name; }));
 
   var keys = Object.keys(self._opts.hosts);
   for (var i=0; i<keys.length; i++) {
