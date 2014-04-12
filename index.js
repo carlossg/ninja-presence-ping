@@ -32,7 +32,7 @@ Presence.prototype.init = function() {
 Presence.prototype.scan = function() {
   
   var self = this;
-  this._app.log.info('Pinging hosts: %j', _.map(self._opts.hosts, function(host) { return host.name; }));
+  this._app.log.debug('Pinging hosts: %j', _.map(self._opts.hosts, function(host) { return host.name; }));
 
   var keys = Object.keys(self._opts.hosts);
   for (var i=0; i<keys.length; i++) {
@@ -53,7 +53,7 @@ Presence.prototype.pingHost = function(host){
 	this._app.log.debug('Ping => Ping host: ', host);
 	self._ping.sys.probe(host.ip,function(isAlive) {
   		if(isAlive) {
-  			self._app.log.info('Ping => ' + host.name +' is up.');
+  			self._app.log.debug('Ping => ' + host.name +' is up.');
   			self.see({
   				name : host.name,
   				id : host.ip.replace('.','_'),
