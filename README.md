@@ -1,16 +1,18 @@
 ninja-presence-ping
 ===================
 
+FORK: this fork uses the state device to track the number of devices detected by ping and uses the standard log object
+
 This is a ping presence driver for your own Ninja Block (http://ninjablocks.com)
 
 To install the easy way you'll need the ninja toolbelt. (https://github.com/ninjablocks/ninja-toolbelt for instructions)
 
 install commando: `ninja install https://github.com/svrooij/ninja-presence-ping`
 
-This driver will create two devices, one with the raw data as devices respond to a ping. And one generic state device with three states, 'NobodyHome' , 'SomeoneHome' , 'EverybodyHome'. 
-So you should be able to use those in your rules!!
+or install clonning this repo into your ninjablocks drivers folder, then run `npm install`
 
-After enabling this driver a Generic state device should show up, but it won't have any states (i don't know how to create them) but if you create them manually you should be able to use them, and they should start changing state automaticly.
+This driver will create two devices, one with the raw data as devices respond to a ping. And one generic state device that will update to the number of devices detected (0,1,2,...)
+So you should be able to use those in your threshold rules!!
 
 For everyone who likes this driver, you can also use this widget (https://gist.github.com/svrooij/6974775)
 
